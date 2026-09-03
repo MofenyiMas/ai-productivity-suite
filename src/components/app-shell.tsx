@@ -21,7 +21,9 @@ const NAV_GROUPS = [
   },
 ] as const;
 
-function NavList({ onNavigate }: { onNavigate?: () => void }) {
+type NavProps = { onNavigate?: (() => void) | undefined };
+
+function NavList({ onNavigate }: NavProps) {
   return (
     <nav className="flex-1 overflow-y-auto px-3 py-2">
       {NAV_GROUPS.map((group) => (
@@ -55,7 +57,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
-function SidebarBody({ onNavigate }: { onNavigate?: () => void }) {
+function SidebarBody({ onNavigate }: NavProps) {
   return (
     <>
       <div className="flex items-center gap-2.5 px-5 py-5">
